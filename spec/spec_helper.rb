@@ -6,6 +6,27 @@ require 'bundler/setup'
 require 'rspec'
 require 'webmock/rspec'
 
+if ENV['COVERAGE']
+  require 'coveralls'
+  require 'simplecov'
+  Coveralls.wear!
+
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+  SimpleCov.start do
+    add_filter '.bundle/'
+    add_filter 'spec'
+  end
+end
+
+if ENV['CODECLIMATE_REPORT']
+  WebMock.disable_net_connect!(allow: 'codeclimate.com')
+  require 'codeclimate-test-reporter'
+  CodeClimate::TestReporter.start
+end
+
 require 'fluent/test'
 require 'fluent/mixin/ec2meta_placeholders'
 
