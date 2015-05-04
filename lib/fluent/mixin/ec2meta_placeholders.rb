@@ -35,10 +35,6 @@ module Fluent
         map.reduce(value) { |r, p| r.gsub(p[0], p[1].call) }
       end
 
-      def replace_pattern?(value)
-        value =~ /\$\{(?:vpc_id|instance_id:[a-z]+)\}/
-      end
-
       def fetcher
         return @fetcher if @fetcher
 
