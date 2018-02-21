@@ -1,3 +1,5 @@
+require 'fluent/input'
+
 class Fluent::Ec2metaPlaceholdersTestNoConfigParamInput < Fluent::Input
   Fluent::Plugin.register_input('ec2meta_placeholders_test_no_config_param_input', self)
 

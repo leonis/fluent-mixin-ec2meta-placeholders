@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'fluent/config'
 
 module Fluent
@@ -16,15 +18,15 @@ module Fluent
           '${instance_id}' => proc { instance_id }
         }
 
-        def check_element(map, c)
+        check_element = lambda { |map, c|
           c.arg = replace(map, c.arg)
-          c.keys.each do |k|
+          c.each_key do |k|
             v = c.fetch(k, nil)
             c[k] = replace(map, v) if v && v.is_a?(String)
           end
-        end
+        }
 
-        check_element(mapping, conf)
+        check_element.call(mapping, conf)
 
         super
       end

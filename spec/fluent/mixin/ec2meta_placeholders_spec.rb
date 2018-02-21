@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe Fluent::Mixin::Ec2metaPlaceholders do
   include Ec2metaStub
 
-  before(:all) { Fluent::Engine.init }
+  before(:all) { Fluent::Test.setup }
 
   let(:instance_id) { 'idxxxxx' }
   let(:vpc_id) { 'vpc-yyyy' }
