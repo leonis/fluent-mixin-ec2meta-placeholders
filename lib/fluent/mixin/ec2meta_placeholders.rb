@@ -20,7 +20,7 @@ module Fluent
 
         check_element = lambda { |map, c|
           c.arg = replace(map, c.arg)
-          c.each_keys do |k|
+          c.each_key do |k|
             v = c.fetch(k, nil)
             c[k] = replace(map, v) if v && v.is_a?(String)
           end

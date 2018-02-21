@@ -1,13 +1,8 @@
-GIT
-  remote: https://github.com/leonis/ec2_meta.git
-  revision: 1eb80b263da16fd387c21d3c3d6f433e112baa01
-  specs:
-    ec2_meta (0.1.0)
-
 PATH
   remote: .
   specs:
     fluent-mixin-ec2meta-placeholders (0.0.1)
+      ec2_meta (~> 0.1)
       fluentd (~> 0.14)
 
 GEM
@@ -34,6 +29,7 @@ GEM
     docile (1.1.5)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
+    ec2_meta (0.1.1)
     fluentd (0.14.25)
       cool.io (>= 1.4.5, < 2.0.0)
       http_parser.rb (>= 0.5.1, < 0.7.0)
@@ -131,7 +127,6 @@ DEPENDENCIES
   bundler (~> 1.7)
   codeclimate-test-reporter
   coveralls
-  ec2_meta!
   fluent-mixin-ec2meta-placeholders!
   gem-release
   pry-byebug
@@ -143,4 +138,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.13.6
+   1.16.1
